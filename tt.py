@@ -5,7 +5,7 @@ print("Hello, World!")
 
 i = 1
 while (i <= 10):
-    print(f"This is the number {i}.")
+    print("This is the number {i}.")
     i = i + 1
 
 print("That's all, folks!")
