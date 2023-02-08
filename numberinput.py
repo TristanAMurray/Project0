@@ -10,4 +10,7 @@ num2 = int(fnumber2)
 sum = num1 + num2
 print("Sum of {0} and {1} is {2}" .format(num1, num2, sum))
 
-
+if True:
+    print("This is what happens in the 'true' case.")
+else:
+    print("This is what happens in the 'false' (non-true) case.")
