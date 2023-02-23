@@ -1,13 +1,53 @@
+import sys
+def check(number):
+    try:
+        number = int(fnumber2)
+    except:
+        print("ERROR: I need a number, nothing else.")
+    sys.exit(1)
 
-prompt_1 = "What is your number?"
+
+prompt_1 = "What is your number? "
 fnumber = input(prompt_1)
+
 num1 = int(fnumber)
 
-prompt_2 = "What is your second number?"
+a = check(num1)
+
+print (a)
+
+# try:
+#     num1 = int(fnumber)
+# except: 
+#     print("ERROR: I need a number, nothing else.")
+#     sys.exit(1)
+
+prompt_2 = "What is your second number? "
 fnumber2 = input(prompt_2)
 num2 = int(fnumber2)
 
-sum = range(num1, num2)
+a = check(num2)
+
+print(a)
+# try:
+#     num2 = int(fnumber2)
+# except:
+#     print("ERROR: I need a number, nothing else.")
+#     sys.exit(1)
+
+if num1 > num2:
+    tmp = num1
+    num1 = num2
+    num2 = tmp
+
+sum = 0
+i = num1
+
+while i <= num2:
+    sum = sum + i 
+    i = i + 1
+
+
 print("Sum of {0} through {1} is {2}" .format(num1, num2, sum))
 
 if True:
