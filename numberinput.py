@@ -6,10 +6,10 @@ def get_integer_input(prompt):
     exception."""
     input_str = input(prompt)
     try:
-        num = int(input_str)
+        return int(input_str)
     except:
         print("ERROR: I need a number, nothing else.")
-    return num
+        sys.exit(1)
 
 num1 = get_integer_input("What is your number? ")
 num2 = get_integer_input("What is your second number? ")
