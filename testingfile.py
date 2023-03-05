@@ -5,15 +5,23 @@ def print_ttt_board(x, y):
     i = 0
     j = 0
     while i < x:
+        # The code inside these loops isn't quite correct yet.
         sys.stderr.write(f"DEBUG: i is {i}\n")
         sys.stderr.flush()
         while j < y:
             sys.stderr.write(f"DEBUG: j is {j}\n")
             sys.stderr.flush()
-            # The code from this point on isn't quite correct.
-            print ("   |")  
-            print ("----")
+            sys.stdout.write("   |")
+            # You'll need to choose where to include newlines now.
+            sys.stdout.flush()
+            sys.stdout.write("----")
+            sys.stdout.flush()
             j = j + 1
         i = i + 1
+    sys.stdout.write("\n")
+    sys.stdout.write("Notice how you need to include a newline now:")
+    sys.stdout.write("SAME LINE\n")
+    sys.stdout.write("DIFFERENT LINE\n")
+    sys.stdout.flush()
 
 print_ttt_board(3, 3)
