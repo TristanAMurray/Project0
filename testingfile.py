@@ -1,13 +1,17 @@
 import sys
 
+def write_now(msg):
+    """Write MSG to stdout, and flush immediately."""
+    sys.stdout.write(msg)
+    sys.stdout.flush()
+
 def print_ttt_board(x, y):
     """Print a tic-tac-toe board with X columns and Y rows."""
     i = 0
     j = 0
     while i < x:
         # The code inside these loops isn't quite correct yet.
-        sys.stdout.write(f"DEBUG: i is {i}\n")
-        sys.stdout.flush()
+        write_now(f"DEBUG: i is {i}\n")
         while j < y:
             sys.stdout.write(f"DEBUG: j is {j}\n")
             sys.stdout.flush()
