@@ -13,18 +13,13 @@ def print_ttt_board(x, y):
         # The code inside these loops isn't quite correct yet.
         write_now(f"DEBUG: i is {i}\n")
         while j < y:
-            sys.stdout.write(f"DEBUG: j is {j}\n")
-            sys.stdout.flush()
-            sys.stdout.write("__")
+            write_now(f"DEBUG: j is {j}\n")
+            write_now("__")
             # You'll need to choose where to include newlines now.
-            sys.stdout.flush()
-            sys.stdout.write("|")
-            sys.stdout.flush()
-            sys.stdout.write("__")
-            sys.stdout.flush()
-            sys.stdout.write("|")
-            sys.stdout.flush()
-            sys.stdout.write("__")
+            write_now("|")
+            write_now("__")
+            write_now("|")
+            write_now("__")
             j = j + 1
         i = i + 1
 
