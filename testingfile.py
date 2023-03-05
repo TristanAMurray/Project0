@@ -6,8 +6,10 @@ def print_ttt_board(x, y):
     j = 0
     while i < x:
         sys.stderr.write(f"DEBUG: i is {i}\n")
+        sys.stderr.flush()
         while j < y:
             sys.stderr.write(f"DEBUG: j is {j}\n")
+            sys.stderr.flush()
             # The code from this point on isn't quite correct.
             print ("   |")  
             print ("----")
