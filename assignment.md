@@ -1,3 +1,7 @@
+* 3/5/2023
+
+  Increase cell size to allow for displaying of user input and take user input for board size.
+
 * 2/23/2023
 
   Draw a tic-tac-toe board on the screen, using normal characters (such
