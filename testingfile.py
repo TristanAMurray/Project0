@@ -20,12 +20,11 @@ def write_now(msg):
 def print_ttt_board(size1, size2):
     """Print a tic-tac-toe board with X columns and Y rows."""
     i = 0
-    j = 0
-    size1 = sizeinput
-    size2 = sizeinput2
+   
     while i < size1:
         # The code inside these loops isn't quite correct yet.
         write_now(f"DEBUG: i is {i}\n")
+        j = 0
         while j < size2:
             write_now(f"DEBUG: j is {j}\n")
             write_now("---")
@@ -36,5 +35,6 @@ def print_ttt_board(size1, size2):
             write_now("---")
             j = j + 1
         i = i + 1
+      
 
-print_ttt_board(3,3)
+print_ttt_board(sizeinput,sizeinput2)
