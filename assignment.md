@@ -1,3 +1,7 @@
+* 3/23/2023
+
+  Same as assignment for 3/5/2023, because Florida happened :-).
+
 * 3/5/2023
 
   Increase cell size to allow for displaying of user input and take user input for board size.
