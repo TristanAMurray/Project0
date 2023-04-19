@@ -31,14 +31,19 @@ def print_ttt_board(columns, rows):
     i = 0
    
     while i < rows:
-        debug_now(f"i is {i}\n")
-        j = 0
-        while j < columns:
-            debug_now(f"j is {j}\n")
-            write_now("     ")
-            write_now("|")
-            j = j + 1
-        write_now("\n")    
+        desired_height = 3
+        current_height = 1
+        while current_height <= desired_height:
+            j = 0
+            while j < columns:
+                if current_height == desired_height:
+                    write_now("_____")
+                else:
+                    write_now("     ")
+                write_now("|")
+                j = j + 1
+            write_now("\n")
+            current_height = current_height + 1
         i = i + 1
       
 
