@@ -26,23 +26,24 @@ def debug_now(msg):
         sys.stdout.write("DEBUG: ")
         write_now(msg)
 
-def print_ttt_board(size1, size2):
+def print_ttt_board(columns, rows):
     """Print a tic-tac-toe board with X columns and Y rows."""
     i = 0
    
-    while i < size1:
-        # The code inside these loops isn't quite correct yet.
-        debug_now(f"i is {i}\n")
-        j = 0
-        while j < size2:
-            debug_now(f"j is {j}\n")
-            write_now("---")
-            # You'll need to choose where to include newlines now.
-            write_now("|")
-            write_now("---")
-            write_now("|")
-            write_now("---")
-            j = j + 1
+    while i < rows:
+        desired_height = 3
+        current_height = 1
+        while current_height <= desired_height:
+            j = 0
+            while j < columns:
+                if current_height == desired_height:
+                    write_now("_____")
+                else:
+                    write_now("     ")
+                write_now("|")
+                j = j + 1
+            write_now("\n")
+            current_height = current_height + 1
         i = i + 1
       
 
