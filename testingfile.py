@@ -3,7 +3,7 @@ import sys
 DEBUG = False
 
 def board_size_input(prompt):
-    """Take user input for size of the board."""
+    "fg""Take user input for size of the board."""
     input_size = input(prompt)
     try:
         return int(input_size)
@@ -26,23 +26,19 @@ def debug_now(msg):
         sys.stdout.write("DEBUG: ")
         write_now(msg)
 
-def print_ttt_board(size1, size2):
+def print_ttt_board(columns, rows):
     """Print a tic-tac-toe board with X columns and Y rows."""
     i = 0
    
-    while i < size1:
-        # The code inside these loops isn't quite correct yet.
+    while i < rows:
         debug_now(f"i is {i}\n")
         j = 0
-        while j < size2:
+        while j < columns:
             debug_now(f"j is {j}\n")
-            write_now("---")
-            # You'll need to choose where to include newlines now.
+            write_now("     ")
             write_now("|")
-            write_now("---")
-            write_now("|")
-            write_now("---")
             j = j + 1
+        write_now("\n")    
         i = i + 1
       
 

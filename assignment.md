@@ -1,3 +1,7 @@
+* 3/23/2023
+
+  Make the code display an actual tic-tac-toe board even when DEBUG is set to false.
+
 * 3/5/2023
 
   Increase cell size to allow for displaying of user input and take user input for board size.
