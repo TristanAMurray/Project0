@@ -1,6 +1,6 @@
 * 3/23/2023
-
   Make the code display an actual tic-tac-toe board even when DEBUG is set to false.
+  Same as assignment for 3/5/2023, because Florida happened :-).
 
 * 3/5/2023
 
