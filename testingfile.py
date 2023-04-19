@@ -3,7 +3,7 @@ import sys
 DEBUG = False
 
 def board_size_input(prompt):
-    "fg""Take user input for size of the board."""
+    """Take user input for size of the board."""
     input_size = input(prompt)
     try:
         return int(input_size)
