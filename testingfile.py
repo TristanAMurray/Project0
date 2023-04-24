@@ -2,7 +2,7 @@ import sys
 
 DEBUG = False
 
-def board_size_input(prompt):
+def read_number(prompt):
     """Take user input for size of the board."""
     input_size = input(prompt)
     try:
@@ -11,8 +11,8 @@ def board_size_input(prompt):
         print("ERROR: I need a number, nothing else.")
         sys.exit(1)
 
-sizeinput = board_size_input("How wide should the board be? ")
-sizeinput2 = board_size_input("How long should the board be? ")
+sizeinput = read_number("How wide should the board be? ")
+sizeinput2 = read_number("How long should the board be? ")
 
 def write_now(msg):
     """Write MSG to stdout, and flush immediately."""
@@ -52,3 +52,9 @@ def print_ttt_board(columns, rows):
       
 
 print_ttt_board(sizeinput,sizeinput2)
+
+x_move = read_number("What should the x position of your move be? ")
+y_move = read_number("What should the y position of your move be? ")
+
+print(f"x_move is {x_move}")
+print(f"y_move is {y_move}")
