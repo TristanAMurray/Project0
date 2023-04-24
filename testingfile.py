@@ -28,22 +28,22 @@ def debug_now(msg):
 
 def print_ttt_board(columns, rows):
     """Print a tic-tac-toe board with X columns and Y rows."""
-    i = 0
+    i = 1
    
-    while i < rows:
+    while i <= rows:
         desired_height = 3
         current_height = 1
         while current_height <= desired_height:
-            j = 0
-            while j < columns:
+            j = 1
+            while j <= columns:
                 if current_height == desired_height:
-                    if i < (rows - 1):
+                    if i < rows:
                         write_now("_____")
                     else:
                         write_now("     ")
                 else:
                     write_now("     ")
-                if j < (columns - 1):
+                if j < columns:
                     write_now("|")
                 j = j + 1
             write_now("\n")
