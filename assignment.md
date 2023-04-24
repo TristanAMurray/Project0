@@ -1,3 +1,10 @@
+* 20203-04-23
+
+  We've got board-printing working, and move-prompting working.
+
+  For next time, we want to print the moves that are on the board,
+  which means having some kind of game-state data structure.
+
 * 3/23/2023
   Make the code display an actual tic-tac-toe board even when DEBUG is set to false.
   Same as assignment for 3/5/2023, because Florida happened :-).
