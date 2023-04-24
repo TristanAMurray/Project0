@@ -11,8 +11,8 @@ def board_size_input(prompt):
         print("ERROR: I need a number, nothing else.")
         sys.exit(1)
 
-sizeinput = board_size_input("How wide should the board be?")
-sizeinput2 = board_size_input("How long should the board be?")
+sizeinput = board_size_input("How wide should the board be? ")
+sizeinput2 = board_size_input("How long should the board be? ")
 
 def write_now(msg):
     """Write MSG to stdout, and flush immediately."""
