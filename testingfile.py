@@ -26,8 +26,8 @@ def debug_now(msg):
         sys.stdout.write("DEBUG: ")
         write_now(msg)
 
-def print_ttt_board(columns, rows):
-    """Print a tic-tac-toe board with X columns and Y rows."""
+def print_ttt_board(columns, rows, x, y):
+    """Print a tic-tac-toe board of COLUMNS by ROWS with a * at X, Y."""
     i = 1
    
     while i <= rows:
@@ -40,7 +40,10 @@ def print_ttt_board(columns, rows):
                     if i < rows:
                         write_now("_____")
                     else:
-                        write_now("     ")
+                        if (i == x) and (j == y):
+                            write_now("  *  ")
+                        else: 
+                            write_now("     ")
                 else:
                     write_now("     ")
                 if j < columns:
@@ -50,11 +53,7 @@ def print_ttt_board(columns, rows):
             current_height = current_height + 1
         i = i + 1
       
-
-print_ttt_board(sizeinput,sizeinput2)
-
 x_move = read_number("What should the x position of your move be? ")
 y_move = read_number("What should the y position of your move be? ")
-
-print(f"x_move is {x_move}")
-print(f"y_move is {y_move}")
+                     
+print_ttt_board(sizeinput,sizeinput2, x_move, y_move)
