@@ -1,3 +1,10 @@
+* 2023-05-18
+
+  Got printing a single move in the middle of a cell working.
+  
+  Set up a data structure to keep track of the game.
+
+
 * 2023-04-23
 
   We've got board-printing working, and move-prompting working.
@@ -5,7 +12,8 @@
   For next time, we want to print the moves that are on the board,
   which means having some kind of game-state data structure.
 
-* 3/23/2023
+* 2023-03-23
+  
   Make the code display an actual tic-tac-toe board even when DEBUG is set to false.
   Same as assignment for 3/5/2023, because Florida happened :-).
 
