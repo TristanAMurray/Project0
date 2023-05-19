@@ -17,16 +17,16 @@
   Make the code display an actual tic-tac-toe board even when DEBUG is set to false.
   Same as assignment for 3/5/2023, because Florida happened :-).
 
-* 3/5/2023
+* 2023-03-5 
 
   Increase cell size to allow for displaying of user input and take user input for board size.
 
-* 2/23/2023
+* 2023-02-23
 
   Draw a tic-tac-toe board on the screen, using normal characters (such
   as "-", "_", ".", "|", and other things found on a normal keyboard).
 
-* 1/29/2023 
+* 2023-01-29
 
   Read a number from the user and print "this is the number x" and then print the sum of all the numbers from the lower to the higher. 
 
