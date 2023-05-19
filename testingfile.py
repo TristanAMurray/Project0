@@ -48,7 +48,10 @@ def print_ttt_board(columns, rows, x, y):
                         else: 
                             write_now("     ")
                 else:
-                    write_now("     ")
+                    if current_height == 2:
+                        write_now("  *  ")
+                    else: 
+                        write_now("     ")
                 if j < columns:
                     write_now("|")
                 j = j + 1
