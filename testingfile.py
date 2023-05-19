@@ -38,17 +38,11 @@ def print_ttt_board(columns, rows, x, y):
             while j <= columns:
                 if current_height == desired_height:
                     if i < rows:
-                        if (i == y) and (j == x):
-                            write_now("__*__")
-                        else: 
-                            write_now("_____")
+                        write_now("_____")
                     else:
-                        if (i == y) and (j == x):
-                            write_now("  *  ")
-                        else: 
-                            write_now("     ")
+                        write_now("     ")
                 else:
-                    if current_height == 2:
+                    if (current_height == 2) and (i == y) and (j == x):
                         write_now("  *  ")
                     else: 
                         write_now("     ")
