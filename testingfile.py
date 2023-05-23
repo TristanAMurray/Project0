@@ -11,9 +11,6 @@ def read_number(prompt):
         print("ERROR: I need a number, nothing else.")
         sys.exit(1)
 
-sizeinput = read_number("How wide should the board be? ")
-sizeinput2 = read_number("How long should the board be? ")
-
 def write_now(msg):
     """Write MSG to stdout, and flush immediately."""
     sys.stdout.write(msg)
@@ -53,6 +50,9 @@ def print_ttt_board(columns, rows, x, y):
             current_height = current_height + 1
         i = i + 1
       
+sizeinput = read_number("How wide should the board be? ")
+sizeinput2 = read_number("How long should the board be? ")
+
 x_move = read_number("What should the x position of your move be? ")
 y_move = read_number("What should the y position of your move be? ")
                      
