@@ -23,6 +23,14 @@ def debug_now(msg):
         sys.stdout.write("DEBUG: ")
         write_now(msg)
 
+class ttt_game:
+    def __init__(self, columns, rows):
+        self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
+    def receive_move(self, x, y, who):
+        self.board[x - 1][y - 1] = who 
+    def display(self):
+        print(f"board: {self.board}\n")
+
 def print_ttt_board(columns, rows, x, y):
     """Print a tic-tac-toe board of COLUMNS by ROWS with a * at X, Y."""
     i = 1
@@ -57,3 +65,9 @@ x_move = read_number("What should the x position of your move be? ")
 y_move = read_number("What should the y position of your move be? ")
                      
 print_ttt_board(sizeinput,sizeinput2, x_move, y_move)
+
+game = ttt_game(sizeinput, sizeinput2)
+
+game.receive_move(x_move, y_move, "*")
+
+game.display()
