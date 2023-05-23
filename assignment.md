@@ -1,3 +1,11 @@
+* 2023-05-22
+
+  Unify ttt_game.display() and print_ttt_board().
+
+  Maybe start alternating players.
+
+  Don't forget doc strings too.
+
 * 2023-05-18
 
   Got printing a single move in the middle of a cell working.
