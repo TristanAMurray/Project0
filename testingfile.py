@@ -29,43 +29,46 @@ class ttt_game:
     def receive_move(self, x, y, who):
         self.board[x - 1][y - 1] = who 
     def display(self):
-        print(f"board: {self.board}\n")
-
-def print_ttt_board(columns, rows, x, y):
-    """Print a tic-tac-toe board of COLUMNS by ROWS with a * at X, Y."""
-    i = 1
-   
-    while i <= rows:
-        desired_height = 3
-        current_height = 1
-        while current_height <= desired_height:
-            j = 1
-            while j <= columns:
-                if current_height == desired_height:
-                    if i < rows:
-                        write_now("_____")
+        i = 1
+        columns = len(self.board)
+        rows = len(self.board[0])
+        while i <= rows:
+            desired_height = 3
+            current_height = 1
+            while current_height <= desired_height:
+                j = 1
+                while j <= columns:
+                    if current_height == desired_height:
+                        if i < rows:
+                            write_now("_____")
+                        else:
+                            write_now("     ")
                     else:
-                        write_now("     ")
-                else:
-                    if (current_height == 2) and (i == y) and (j == x):
-                        write_now("  *  ")
-                    else: 
-                        write_now("     ")
-                if j < columns:
-                    write_now("|")
-                j = j + 1
-            write_now("\n")
-            current_height = current_height + 1
-        i = i + 1
-      
+                        if (current_height == 2):
+                            # and (i == y) and (j == x):
+                            found_move = None
+                            for board_column in self.board:
+                                debug_now(f"board_column {board_column}")
+                                for board_row in board_column:
+                                    if board_row is not None:
+                                        found_move = board_row 
+                            if found_move is not None:
+                                write_now(f"  {found_move}  ")
+                            else:
+                                write_now("     ")
+                    if j < columns:
+                        write_now("|")
+                    j = j + 1
+                write_now("\n")
+                current_height = current_height + 1
+            i = i + 1
+
 sizeinput = read_number("How wide should the board be? ")
 sizeinput2 = read_number("How long should the board be? ")
 
 x_move = read_number("What should the x position of your move be? ")
 y_move = read_number("What should the y position of your move be? ")
-                     
-print_ttt_board(sizeinput,sizeinput2, x_move, y_move)
-
+                    
 game = ttt_game(sizeinput, sizeinput2)
 
 game.receive_move(x_move, y_move, "*")
