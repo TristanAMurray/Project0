@@ -1,6 +1,6 @@
 import sys
 
-DEBUG = False
+DEBUG = True
 
 def read_number(prompt):
     """Take user input for size of the board."""
@@ -44,18 +44,10 @@ class ttt_game:
                         else:
                             write_now("     ")
                     else:
-                        if (current_height == 2):
-                            # and (i == y) and (j == x):
-                            found_move = None
-                            for board_column in self.board:
-                                debug_now(f"board_column {board_column}")
-                                for board_row in board_column:
-                                    if board_row is not None:
-                                        found_move = board_row 
-                            if found_move is not None:
-                                write_now(f"  {found_move}  ")
-                            else:
-                                write_now("     ")
+                        if (current_height == 2) and self.board[j - 1][i - 1] is not None:
+                            write_now(f"  {self.board[j - 1][i - 1]}  ")
+                        else:
+                            write_now("     ")
                     if j < columns:
                         write_now("|")
                     j = j + 1
