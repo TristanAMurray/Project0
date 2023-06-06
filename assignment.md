@@ -1,3 +1,10 @@
+* 2023-06-05
+
+  Take any single character as the move from the user, and record it
+  in the board so that when the board is printed, we see that
+  character (which might or might not be "*" -- it depends on what the
+  user gave).
+
 * 2023-05-22
 
   Unify ttt_game.display() and print_ttt_board().
