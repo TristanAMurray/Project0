@@ -64,6 +64,7 @@ class ttt_game:
                 write_now("\n")
                 current_height = current_height + 1
             i = i + 1
+        write_now("\n")
 
 sizeinput = read_number("How wide should the board be? ")
 sizeinput2 = read_number("How long should the board be? ")
