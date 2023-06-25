@@ -11,6 +11,15 @@ def read_number(prompt):
         print("ERROR: I need a number, nothing else.")
         sys.exit(1)
 
+def read_symbol(prompt):
+    """Take user input for the symbol that represents their moves."""
+    input_symbol = input(prompt)
+    if len(input_symbol) == 1:
+        return input_symbol
+    else:
+        print("ERROR: Only one character is allowed.")
+        sys.exit(1)
+
 def write_now(msg):
     """Write MSG to stdout, and flush immediately."""
     sys.stdout.write(msg)
@@ -58,11 +67,13 @@ class ttt_game:
 sizeinput = read_number("How wide should the board be? ")
 sizeinput2 = read_number("How long should the board be? ")
 
+player1_symbol = read_symbol("What symbol do you want to represent your moves? ")
+
 x_move = read_number("What should the x position of your move be? ")
 y_move = read_number("What should the y position of your move be? ")
                     
 game = ttt_game(sizeinput, sizeinput2)
 
-game.receive_move(x_move, y_move, "*")
+game.receive_move(x_move, y_move, player1_symbol)
 
 game.display()
