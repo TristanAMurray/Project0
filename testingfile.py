@@ -36,6 +36,7 @@ class ttt_game:
     def __init__(self, columns, rows):
         self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
     def receive_move(self, x, y, who):
+        """Recieve one move X,Y from Player WHO."""
         self.board[x - 1][y - 1] = who 
     def display(self):
         i = 1
@@ -67,13 +68,21 @@ class ttt_game:
 sizeinput = read_number("How wide should the board be? ")
 sizeinput2 = read_number("How long should the board be? ")
 
-player1_symbol = read_symbol("What symbol do you want to represent your moves? ")
+player1_symbol = read_symbol("What symbol does Player 1 want to represent their moves? ")
+player2_symbol = read_symbol("What symbol does Player 2 want to represent their moves? ")
 
-x_move = read_number("What should the x position of your move be? ")
-y_move = read_number("What should the y position of your move be? ")
+p1_x = read_number("What should the x position of Player 1's move be? ")
+p1_y = read_number("What should the y position of Player 1's move be? ")
+
+p2_x = read_number("What should the x position of Player 2's move be? ")
+p2_y = read_number("What should the y position of Player 2's move be? ")
                     
 game = ttt_game(sizeinput, sizeinput2)
 
-game.receive_move(x_move, y_move, player1_symbol)
+game.receive_move(p1_x, p1_y, player1_symbol)
+
+game.display()
+
+game.receive_move(p2_x, p2_y, player2_symbol)
 
 game.display()
