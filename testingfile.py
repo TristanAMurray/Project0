@@ -37,7 +37,12 @@ class ttt_game:
         self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
     def receive_move(self, x, y, who):
         """Recieve one move X,Y from Player WHO."""
-        self.board[x - 1][y - 1] = who 
+        if self.board[x - 1][y - 1] is None:
+            self.board[x - 1][y - 1] = who 
+        else:
+            print(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.")
+            sys.exit(1)
+            
     def display(self):
         i = 1
         columns = len(self.board)
