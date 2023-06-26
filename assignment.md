@@ -1,3 +1,10 @@
+* 2023-06-25
+
+  Make sure players use different symbols.
+  Add a way to alternate turns between players.
+
+
+
 * 2023-06-05
 
   Take any single character as the move from the user, and record it
