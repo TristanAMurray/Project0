@@ -38,10 +38,21 @@ class ttt_game:
         self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
     def receive_move(self, x, y, who):
         """Receive one move X,Y from Player WHO."""
+        out_of_bounds_errors = []
+        if x > len(self.board):
+            out_of_bounds_errors.append(
+                f"ERROR: Move {x} is wider than board width {len(self.board)}.")
+        if y > len(self.board[0]):
+            out_of_bounds_errors.append(
+                f"ERROR: Move {y} exceeds board height {len(self.board[0])}.")
+        if len(out_of_bounds_errors) != 0:
+            for elt in out_of_bounds_errors:
+                write_now(elt + "\n")
+            sys.exit(1)
         if self.board[x - 1][y - 1] is None:
             self.board[x - 1][y - 1] = who 
         else:
-            print(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.")
+            write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.")
             sys.exit(1)
             
     def display(self):
