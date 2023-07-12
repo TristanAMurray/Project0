@@ -77,18 +77,18 @@ sizeinput2 = read_number("How long should the board be? ")
 player1_symbol = read_symbol("What symbol does Player 1 want to represent their moves? ")
 player2_symbol = read_symbol("What symbol does Player 2 want to represent their moves? ")
 
+game = ttt_game(sizeinput, sizeinput2)
+
 p1_x = read_number("What should the x position of Player 1's move be? ")
 p1_y = read_number("What should the y position of Player 1's move be? ")
-
-p2_x = read_number("What should the x position of Player 2's move be? ")
-p2_y = read_number("What should the y position of Player 2's move be? ")
-                    
-game = ttt_game(sizeinput, sizeinput2)
 
 game.receive_move(p1_x, p1_y, player1_symbol)
 
 game.display()
 
+p2_x = read_number("What should the x position of Player 2's move be? ")
+p2_y = read_number("What should the y position of Player 2's move be? ")
+                    
 game.receive_move(p2_x, p2_y, player2_symbol)
 
 game.display()
