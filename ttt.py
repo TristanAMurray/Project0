@@ -7,8 +7,9 @@ def read_number(prompt):
     input_size = input(prompt)
     try:
         return int(input_size)
-    except:
+    except Exception as e:
         print("ERROR: I need a number, nothing else.")
+        print(f"ERROR: Exception received: {e}")
         sys.exit(1)
 
 def read_symbol(prompt):
@@ -36,7 +37,7 @@ class ttt_game:
     def __init__(self, columns, rows):
         self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
     def receive_move(self, x, y, who):
-        """Recieve one move X,Y from Player WHO."""
+        """Receive one move X,Y from Player WHO."""
         if self.board[x - 1][y - 1] is None:
             self.board[x - 1][y - 1] = who 
         else:
