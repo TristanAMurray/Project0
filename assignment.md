@@ -7,8 +7,6 @@
 
   Add error checking.
 
-
-
 * 2023-06-05
 
   Take any single character as the move from the user, and record it
