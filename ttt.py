@@ -47,6 +47,7 @@ class ttt_game:
         i = 1
         columns = len(self.board)
         rows = len(self.board[0])
+        write_now("\n")
         while i <= rows:
             desired_height = 3
             current_height = 1
