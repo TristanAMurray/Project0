@@ -1,7 +1,11 @@
-* 2023-06-25
+* 2023-07-12
 
   Make sure players use different symbols.
   Add a way to alternate turns between players.
+
+* 2023-06-25
+
+  Add error checking.
 
 
 
