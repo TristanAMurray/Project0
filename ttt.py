@@ -8,8 +8,8 @@ def read_number(prompt):
     try:
         return int(input_size)
     except Exception as e:
-        print("ERROR: I need a number, nothing else.")
-        print(f"ERROR: Exception received: {e}")
+        print("ERROR: I need a number, nothing else.\n")
+        print(f"ERROR: Exception received: {e}\n")
         sys.exit(1)
 
 def read_symbol(prompt):
@@ -18,7 +18,7 @@ def read_symbol(prompt):
     if len(input_symbol) == 1:
         return input_symbol
     else:
-        print("ERROR: Only one character is allowed.")
+        print("ERROR: Only one character is allowed.\n")
         sys.exit(1)
 
 def write_now(msg):
@@ -52,7 +52,7 @@ class ttt_game:
         if self.board[x - 1][y - 1] is None:
             self.board[x - 1][y - 1] = who 
         else:
-            write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.")
+            write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.\n")
             sys.exit(1)
         any_open_space = False
         current_x = 0

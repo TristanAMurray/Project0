@@ -1,7 +1,6 @@
 * 2023-10-18
 
   - Make player errors be non-fatal.
-  - Put newlines at ends of errors and other messages.
   - Do something appropriate if board is full.
   - Detect a win.
 
