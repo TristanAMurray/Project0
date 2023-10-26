@@ -4,22 +4,22 @@ DEBUG = True
 
 def read_number(prompt):
     """Take user input for size of the board."""
-    input_size = input(prompt)
-    try:
-        return int(input_size)
-    except Exception as e:
-        print("ERROR: I need a number, nothing else.\n")
-        print(f"ERROR: Exception received: {e}\n")
-        sys.exit(1)
+    while True:
+        input_size = input(prompt)
+        try:
+            return int(input_size)
+        except Exception as e:
+            print("ERROR: I need a number, nothing else.\n")
+            print(f"ERROR: Exception received: {e}\n")
 
 def read_symbol(prompt):
     """Take user input for the symbol that represents their moves."""
-    input_symbol = input(prompt)
-    if len(input_symbol) == 1:
-        return input_symbol
-    else:
-        print("ERROR: Only one character is allowed.\n")
-        sys.exit(1)
+    while True:
+        input_symbol = input(prompt)
+        if len(input_symbol) == 1:
+            return input_symbol
+        else:
+            print("ERROR: Only one character is allowed.\n")
 
 def write_now(msg):
     """Write MSG to stdout, and flush immediately."""
@@ -48,12 +48,12 @@ class ttt_game:
         if len(out_of_bounds_errors) != 0:
             for elt in out_of_bounds_errors:
                 write_now(elt + "\n")
-            sys.exit(1)
+            return False
         if self.board[x - 1][y - 1] is None:
             self.board[x - 1][y - 1] = who 
         else:
             write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.\n")
-            sys.exit(1)
+            return False
         any_open_space = False
         current_x = 0
         while (current_x < len(self.board)) and (any_open_space == False):
@@ -65,10 +65,8 @@ class ttt_game:
             current_x = current_x + 1
         if any_open_space == False:
             write_now("No empty spots left on board.\n")
+        return True
 
-
-
-            
     def display(self):
         i = 1
         columns = len(self.board)
@@ -106,13 +104,17 @@ player2_symbol = read_symbol("What symbol does Player 2 want to represent their 
 
 game = ttt_game(sizeinput, sizeinput2)
 
-while True:
-    p1_x = read_number("What should the x position of Player 1's move be? ")
-    p1_y = read_number("What should the y position of Player 1's move be? ")
-    game.receive_move(p1_x, p1_y, player1_symbol)
-    game.display()
+whose_turn = 1
 
-    p2_x = read_number("What should the x position of Player 2's move be? ")
-    p2_y = read_number("What should the y position of Player 2's move be? ")             
-    game.receive_move(p2_x, p2_y, player2_symbol)
+while True:
+    x = read_number(f"What should the x position of Player {whose_turn}'s move be? ")
+    y = read_number(f"What should the y position of Player {whose_turn}'s move be? ")
+    if whose_turn == 1:
+        successful_move = game.receive_move(x, y, player1_symbol) 
+        if successful_move == True:
+            whose_turn = 2    
+    elif whose_turn == 2:         
+        successful_move = game.receive_move(x, y, player2_symbol)
+        if successful_move == True:
+            whose_turn = 1
     game.display()

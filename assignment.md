@@ -1,6 +1,5 @@
 * 2023-10-18
 
-  - Make player errors be non-fatal.
   - Do something appropriate if board is full.
   - Detect a win.
 
