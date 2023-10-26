@@ -54,6 +54,20 @@ class ttt_game:
         else:
             write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.")
             sys.exit(1)
+        any_open_space = False
+        current_x = 0
+        while (current_x < len(self.board)) and (any_open_space == False):
+            current_y = 0
+            while (current_y < len(self.board[current_x])) and (any_open_space == False):
+                if self.board[current_x][current_y] is None:
+                    any_open_space = True
+                current_y = current_y + 1
+            current_x = current_x + 1
+        if any_open_space == False:
+            write_now("No empty spots left on board.\n")
+
+
+
             
     def display(self):
         i = 1
@@ -92,16 +106,13 @@ player2_symbol = read_symbol("What symbol does Player 2 want to represent their 
 
 game = ttt_game(sizeinput, sizeinput2)
 
-p1_x = read_number("What should the x position of Player 1's move be? ")
-p1_y = read_number("What should the y position of Player 1's move be? ")
+while True:
+    p1_x = read_number("What should the x position of Player 1's move be? ")
+    p1_y = read_number("What should the y position of Player 1's move be? ")
+    game.receive_move(p1_x, p1_y, player1_symbol)
+    game.display()
 
-game.receive_move(p1_x, p1_y, player1_symbol)
-
-game.display()
-
-p2_x = read_number("What should the x position of Player 2's move be? ")
-p2_y = read_number("What should the y position of Player 2's move be? ")
-                    
-game.receive_move(p2_x, p2_y, player2_symbol)
-
-game.display()
+    p2_x = read_number("What should the x position of Player 2's move be? ")
+    p2_y = read_number("What should the y position of Player 2's move be? ")             
+    game.receive_move(p2_x, p2_y, player2_symbol)
+    game.display()
