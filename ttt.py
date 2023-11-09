@@ -37,7 +37,14 @@ class ttt_game:
     def __init__(self, size):
         self.board = [[None for j in range(0, size)] for i in range(0, size)]
     def receive_move(self, x, y, who):
-        """Receive one move X,Y from Player WHO."""
+        """Receive one move X,Y from Player WHO.
+            Possible return values are: 
+            0 is successful non-final move
+            1 is Player 1 win 
+            2 is Player 2 win
+            3 is draw
+            -1 is out of bounds error
+            -2 is player overlap error"""
         out_of_bounds_errors = []
         if x > len(self.board):
             out_of_bounds_errors.append(
@@ -48,12 +55,12 @@ class ttt_game:
         if len(out_of_bounds_errors) != 0:
             for elt in out_of_bounds_errors:
                 write_now(elt + "\n")
-            return False
+            return -1
         if self.board[x - 1][y - 1] is None:
             self.board[x - 1][y - 1] = who 
         else:
             write_now(f"ERROR: Move \"{self.board[x - 1][y - 1]}\" is already at {x}, {y}.\n")
-            return False
+            return -2
         any_open_space = False
         current_x = 0
         while (current_x < len(self.board)) and (any_open_space == False):
@@ -64,8 +71,9 @@ class ttt_game:
                 current_y = current_y + 1
             current_x = current_x + 1
         if any_open_space == False:
-            write_now("No empty spots left on board.\n")
-        return True
+            return 3
+        else:
+            return 0
 
     def display(self):
         i = 1
@@ -109,11 +117,30 @@ while True:
     x = read_number(f"What should the x position of Player {whose_turn}'s move be? ")
     y = read_number(f"What should the y position of Player {whose_turn}'s move be? ")
     if whose_turn == 1:
-        successful_move = game.receive_move(x, y, player1_symbol) 
-        if successful_move == True:
-            whose_turn = 2    
+        move_result = game.receive_move(x, y, player1_symbol) 
+        game.display()
+        if move_result == 0:
+            whose_turn = 2
+        elif move_result == 1:
+            write_now("Player 1 has won the game.\n")
+        elif move_result == 3:
+            write_now("Game is a tie.\n")
+            sys.exit(0)
+        elif move_result == -1:
+            write_now("ERROR: Move exceeds size of board.\n")
+        elif move_result == -2:
+            write_now("ERROR: Opponent's move already in chosen spot.\n")
     elif whose_turn == 2:         
-        successful_move = game.receive_move(x, y, player2_symbol)
-        if successful_move == True:
+        move_result = game.receive_move(x, y, player2_symbol)
+        game.display()
+        if move_result == 0:
             whose_turn = 1
-    game.display()
+        elif move_result == 2:
+            write_now("Player 2 has won the game.\n")
+        elif move_result == 3:
+            write_now("Game is a tie.\n")
+            sys.exit(0)
+        elif move_result == -1:
+            write_now("ERROR: Move exceeds size of board.\n")
+        elif move_result == -2:
+            write_now("ERROR: Opponent's move already in chosen spot.\n")
