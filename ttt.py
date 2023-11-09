@@ -34,8 +34,8 @@ def debug_now(msg):
         write_now(msg)
 
 class ttt_game:
-    def __init__(self, columns, rows):
-        self.board = [[None for j in range(0, rows)] for i in range(0, columns)]
+    def __init__(self, size):
+        self.board = [[None for j in range(0, size)] for i in range(0, size)]
     def receive_move(self, x, y, who):
         """Receive one move X,Y from Player WHO."""
         out_of_bounds_errors = []
@@ -96,13 +96,12 @@ class ttt_game:
             i = i + 1
         write_now("\n")
 
-sizeinput = read_number("How wide should the board be? ")
-sizeinput2 = read_number("How long should the board be? ")
+sizeinput = read_number("How big should the board be? ")
 
 player1_symbol = read_symbol("What symbol does Player 1 want to represent their moves? ")
 player2_symbol = read_symbol("What symbol does Player 2 want to represent their moves? ")
 
-game = ttt_game(sizeinput, sizeinput2)
+game = ttt_game(sizeinput)
 
 whose_turn = 1
 
