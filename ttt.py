@@ -121,7 +121,7 @@ while True:
         game.display()
         if move_result == 0:
             whose_turn = (whose_turn % 2) + 1
-        elif move_result == 1:
+        elif move_result == whose_turn:
             write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
             write_now("Game is a tie.\n")
@@ -135,7 +135,7 @@ while True:
         game.display()
         if move_result == 0:
             whose_turn = (whose_turn % 2) + 1
-        elif move_result == 2:
+        elif move_result == whose_turn:
             write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
             write_now("Game is a tie.\n")
