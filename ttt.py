@@ -122,7 +122,7 @@ while True:
         if move_result == 0:
             whose_turn = 2
         elif move_result == 1:
-            write_now("Player 1 has won the game.\n")
+            write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
             write_now("Game is a tie.\n")
             sys.exit(0)
@@ -136,7 +136,7 @@ while True:
         if move_result == 0:
             whose_turn = 1
         elif move_result == 2:
-            write_now("Player 2 has won the game.\n")
+            write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
             write_now("Game is a tie.\n")
             sys.exit(0)
