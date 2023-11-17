@@ -120,7 +120,7 @@ while True:
         move_result = game.receive_move(x, y, player1_symbol) 
         game.display()
         if move_result == 0:
-            whose_turn = 2
+            whose_turn = (whose_turn % 2) + 1
         elif move_result == 1:
             write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
@@ -134,7 +134,7 @@ while True:
         move_result = game.receive_move(x, y, player2_symbol)
         game.display()
         if move_result == 0:
-            whose_turn = 1
+            whose_turn = (whose_turn % 2) + 1
         elif move_result == 2:
             write_now(f"Player {whose_turn} has won the game.\n")
         elif move_result == 3:
