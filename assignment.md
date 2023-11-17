@@ -1,3 +1,7 @@
+* 2023-11-16
+
+  - Detect a win.
+
 * 2023-11-08
 
   - Un-duplicate the display loop code at the bottom of the file.

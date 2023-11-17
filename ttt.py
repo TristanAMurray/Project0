@@ -118,31 +118,16 @@ player_symbols = [player1_symbol, player2_symbol]
 while True:
     x = read_number(f"What should the x position of Player {whose_turn}'s move be? ")
     y = read_number(f"What should the y position of Player {whose_turn}'s move be? ")
-    if whose_turn == 1:
-        move_result = game.receive_move(x, y, player_symbols[whose_turn - 1]) 
-        game.display()
-        if move_result == 0:
-            whose_turn = (whose_turn % 2) + 1
-        elif move_result == whose_turn:
-            write_now(f"Player {whose_turn} has won the game.\n")
-        elif move_result == 3:
-            write_now("Game is a tie.\n")
-            sys.exit(0)
-        elif move_result == -1:
-            write_now("ERROR: Move exceeds size of board.\n")
-        elif move_result == -2:
-            write_now("ERROR: Opponent's move already in chosen spot.\n")
-    elif whose_turn == 2:         
-        move_result = game.receive_move(x, y, player_symbols[whose_turn - 1])
-        game.display()
-        if move_result == 0:
-            whose_turn = (whose_turn % 2) + 1
-        elif move_result == whose_turn:
-            write_now(f"Player {whose_turn} has won the game.\n")
-        elif move_result == 3:
-            write_now("Game is a tie.\n")
-            sys.exit(0)
-        elif move_result == -1:
-            write_now("ERROR: Move exceeds size of board.\n")
-        elif move_result == -2:
-            write_now("ERROR: Opponent's move already in chosen spot.\n")
+    move_result = game.receive_move(x, y, player_symbols[whose_turn - 1]) 
+    game.display()
+    if move_result == 0:
+        whose_turn = (whose_turn % 2) + 1
+    elif move_result == whose_turn:
+        write_now(f"Player {whose_turn} has won the game.\n")
+    elif move_result == 3:
+        write_now("Game is a tie.\n")
+        sys.exit(0)
+    elif move_result == -1:
+        write_now("ERROR: Move exceeds size of board.\n")
+    elif move_result == -2:
+        write_now("ERROR: Opponent's move already in chosen spot.\n")
