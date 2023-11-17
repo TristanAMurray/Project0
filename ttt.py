@@ -113,11 +113,13 @@ game = ttt_game(sizeinput)
 
 whose_turn = 1
 
+player_symbols = [player1_symbol, player2_symbol]
+
 while True:
     x = read_number(f"What should the x position of Player {whose_turn}'s move be? ")
     y = read_number(f"What should the y position of Player {whose_turn}'s move be? ")
     if whose_turn == 1:
-        move_result = game.receive_move(x, y, player1_symbol) 
+        move_result = game.receive_move(x, y, player_symbols[whose_turn - 1]) 
         game.display()
         if move_result == 0:
             whose_turn = (whose_turn % 2) + 1
@@ -131,7 +133,7 @@ while True:
         elif move_result == -2:
             write_now("ERROR: Opponent's move already in chosen spot.\n")
     elif whose_turn == 2:         
-        move_result = game.receive_move(x, y, player2_symbol)
+        move_result = game.receive_move(x, y, player_symbols[whose_turn - 1])
         game.display()
         if move_result == 0:
             whose_turn = (whose_turn % 2) + 1
